@@ -98,8 +98,8 @@ Consultor IA - Ingeniero IA/ML
 
 **Experiencia**:
 - Magíster en Economía, Universidad de los Andes
--Consultor en IA Generativa
-- Director de Nuevas Tecnologías, El Espectador
+- Consultor en IA Generativa en el BID
+- Ex Director de Nuevas Tecnologías, El Espectador
 - Profesor de IA Aplicada, Universidad de los Andes
 - Profesor de Generación de Contenido con IA, Universidad del Rosario
 
