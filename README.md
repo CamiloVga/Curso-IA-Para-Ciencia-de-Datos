@@ -97,7 +97,7 @@ Consultor IA - Ingeniero IA/ML
 📧 **LinkedIn**: [https://www.linkedin.com/in/camilo-vega-169084b1/](https://www.linkedin.com/in/camilo-vega-169084b1/)
 
 **Experiencia**:
-- Magíster en Economía, Universidad de los Andes
+- MSc en Economía, Universidad de los Andes
 - Consultor en IA Generativa, Banco Interamericano de Desarrollo (BID)
 - Ex Director de Nuevas Tecnologías, El Espectador
 - Profesor de IA Aplicada, Universidad de los Andes
