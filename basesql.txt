@@ -1,0 +1,66 @@
+-- Crear tabla de departamentos
+CREATE TABLE departments (
+    department_id SERIAL PRIMARY KEY,
+    department_name VARCHAR(50) NOT NULL
+);
+
+-- Crear tabla de empleados con foreign key reference
+CREATE TABLE employees (
+    employee_id SERIAL PRIMARY KEY,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    phone_number VARCHAR(20),
+    hire_date DATE NOT NULL,
+    job_title VARCHAR(100),
+    salary DECIMAL(10,2),
+    department_id INTEGER REFERENCES departments(department_id)
+);
+
+-- Insertar datos en la tabla departments
+INSERT INTO departments (department_name) VALUES
+('Recursos Humanos'),
+('Tecnología'),
+('Ventas'),
+('Marketing'),
+('Finanzas');
+
+-- Insertar datos en la tabla employees
+INSERT INTO employees (first_name, last_name, email, phone_number, hire_date, job_title, salary, department_id) VALUES
+('María', 'García', 'maria.garcia@empresa.com', '+57 300 123 4567', '2022-01-15', 'Gerente de RRHH', 8500000.00, 1),
+('Carlos', 'Rodríguez', 'carlos.rodriguez@empresa.com', '+57 301 234 5678', '2021-03-22', 'Desarrollador Senior', 7200000.00, 2),
+('Ana', 'López', 'ana.lopez@empresa.com', '+57 302 345 6789', '2023-05-10', 'Ejecutiva de Ventas', 4500000.00, 3),
+('Diego', 'Martínez', 'diego.martinez@empresa.com', '+57 303 456 7890', '2022-08-07', 'Especialista en Marketing', 5200000.00, 4),
+('Laura', 'Hernández', 'laura.hernandez@empresa.com', '+57 304 567 8901', '2021-11-18', 'Analista Financiero', 6000000.00, 5),
+('Javier', 'Sánchez', 'javier.sanchez@empresa.com', '+57 305 678 9012', '2023-02-14', 'Desarrollador Junior', 3800000.00, 2),
+('Sofía', 'Ramírez', 'sofia.ramirez@empresa.com', '+57 306 789 0123', '2022-04-25', 'Coordinadora de RRHH', 4800000.00, 1),
+('Miguel', 'Torres', 'miguel.torres@empresa.com', '+57 307 890 1234', '2021-07-12', 'Director de Ventas', 9500000.00, 3),
+('Valentina', 'Morales', 'valentina.morales@empresa.com', '+57 308 901 2345', '2023-09-03', 'Diseñadora Gráfica', 4200000.00, 4),
+('Andrés', 'Vargas', 'andres.vargas@empresa.com', '+57 309 012 3456', '2022-06-20', 'Contador', 5500000.00, 5),
+('Camila', 'Castro', 'camila.castro@empresa.com', '+57 310 123 4567', '2023-01-08', 'QA Tester', 4000000.00, 2),
+('Felipe', 'Jiménez', 'felipe.jimenez@empresa.com', '+57 311 234 5678', '2021-12-05', 'Vendedor', 3200000.00, 3),
+('Isabella', 'Ruiz', 'isabella.ruiz@empresa.com', '+57 312 345 6789', '2022-10-30', 'Community Manager', 3600000.00, 4),
+('Sebastián', 'Mendoza', 'sebastian.mendoza@empresa.com', '+57 313 456 7890', '2023-07-16', 'Auditor', 6200000.00, 5),
+('Natalia', 'Peña', 'natalia.pena@empresa.com', '+57 314 567 8901', '2021-05-28', 'Arquitecta de Software', 8800000.00, 2),
+('Ricardo', 'Gómez', 'ricardo.gomez@empresa.com', '+57 315 678 9012', '2022-09-11', 'Representante de Ventas', 3800000.00, 3),
+('Gabriela', 'Ortiz', 'gabriela.ortiz@empresa.com', '+57 316 789 0123', '2023-04-02', 'Analista de Marketing', 4600000.00, 4),
+('Emilio', 'Vega', 'emilio.vega@empresa.com', '+57 317 890 1234', '2021-08-15', 'Tesorero', 7000000.00, 5),
+('Juliana', 'Rojas', 'juliana.rojas@empresa.com', '+57 318 901 2345', '2022-12-19', 'Asistente de RRHH', 2800000.00, 1),
+('Santiago', 'Moreno', 'santiago.moreno@empresa.com', '+57 319 012 3456', '2023-06-05', 'DevOps Engineer', 7800000.00, 2);
+
+-- Consultas de ejemplo para verificar los datos
+SELECT * FROM departments;
+SELECT * FROM employees;
+
+-- Consulta con JOIN para ver empleados con sus departamentos
+SELECT 
+    e.employee_id,
+    e.first_name,
+    e.last_name,
+    e.email,
+    e.job_title,
+    e.salary,
+    d.department_name
+FROM employees e
+JOIN departments d ON e.department_id = d.department_id
+ORDER BY d.department_name, e.last_name;
